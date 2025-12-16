@@ -38,7 +38,7 @@ const Product = sequelize.define(
     },
   },
   {
-    tableName: "Products",
+    tableName: "products_porkeat",
     timestamps: true,
   }
 );

@@ -12,10 +12,11 @@ const Category = sequelize.define(
     name: {
       type: DataTypes.STRING,
       allowNull: false,
+      unique: true,
     },
   },
   {
-    tableName: "category",
+    tableName: "category_porkeat",
     timestamps: false,
   }
 );

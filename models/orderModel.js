@@ -20,7 +20,7 @@ const Order = sequelize.define(
     },
   },
   {
-    tableName: "Orders",
+    tableName: "orders_porkeat",
     timestamps: true,
   }
 );
