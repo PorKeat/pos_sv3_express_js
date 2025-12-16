@@ -3,60 +3,14 @@
 var app = require("../app");
 var debug = require("debug")("pos-sv3:server");
 var http = require("http");
-
-const { connectDB, sequelize } = require("../config/database");
-
-// Import models to ensure they are registered
-// const Category = require("../models/categoryModel");
-// const User = require("../models/userModel");
-// const Order = require("../models/orderModel");
-// const Product = require("../models/productModel");
-// const OrderDetail = require("../models/orderDetailModel");
-
 var port = normalizePort(process.env.PORT || "3000");
 app.set("port", port);
 
 var server = http.createServer(app);
 
-connectDB(async (err) => {
-  if (err) process.exit(1);
-
-  // Sync models and create tables
-  // await Category.sync({ force: true });
-  // await Product.sync({ force: true });
-  // await User.sync({ force: true });
-  // await Order.sync({ force: true });
-  // await OrderDetail.sync({ force: true });
-
-  // Or use this to sync all at once
-  await sequelize.sync({ force: true });
-
-  console.log("Tables created.");
-
-  server.listen(port);
-  server.on("error", onError);
-  server.on("listening", onListening);
-});
-
-// Cleanup function to drop tables on exit
-
-// async function cleanup() {
-//   console.log("Dropping tables...");
-//   await sequelize.query("SET FOREIGN_KEY_CHECKS = 0");
-//   await OrderDetail.drop().catch(() => {});
-//   await Product.drop().catch(() => {});
-//   await Order.drop().catch(() => {});
-//   await User.drop().catch(() => {});
-//   await Category.drop().catch(() => {});
-//   await sequelize.query("SET FOREIGN_KEY_CHECKS = 1");
-//   console.log("Tables dropped.");
-//   process.exit(0);
-// }
-
-// // Listen for exit signals
-// process.on("SIGINT", cleanup);
-// process.on("SIGTERM", cleanup);
-// process.on("exit", cleanup);
+server.listen(port);
+server.on("error", onError);
+server.on("listening", onListening);
 
 function normalizePort(val) {
   var port = parseInt(val, 10);

@@ -15,17 +15,4 @@ const sequelize = new Sequelize(
   }
 );
 
-function connectDB(callback) {
-  sequelize
-    .authenticate()
-    .then(() => {
-      console.log("Database connected successfully.");
-      callback(null, sequelize);
-    })
-    .catch((err) => {
-      console.error("Unable to connect to the database:", err);
-      callback(err);
-    });
-}
-
-module.exports = { sequelize, connectDB };
+module.exports = sequelize;
