@@ -1,0 +1,29 @@
+version: "3.8"
+
+services:
+  api:
+    image: pos_sv3
+    container_name: pos_sv3_api
+    build: .
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env.production
+    depends_on:
+      - mysql
+    restart: unless-stopped
+
+  mysql:
+    image: mysql:8.0
+    container_name: pos_sv3_mysql
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: pos_sv3
+    volumes:
+      - mysql_data:/var/lib/mysql
+    restart: unless-stopped
+
+volumes:
+  mysql_data:
