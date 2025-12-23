@@ -32,6 +32,8 @@ app.use("/order-details", orderDetailRoutes);
 
 setupSwagger(app);
 
+app.use("/images", express.static("public/images"));
+
 app.use(function (req, res, next) {
   next(createError(404));
 });

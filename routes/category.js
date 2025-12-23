@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const categoryController = require("../controllers/categoryController");
+const upload = require("../middleware/upload");
 
 /**
  * @swagger
@@ -81,7 +82,7 @@ router.get("/:id", categoryController.getCategoryById);
  *       400:
  *         description: Invalid input
  */
-router.post("/", categoryController.createCategory);
+router.post("/", upload.single("image"), categoryController.createCategory);
 
 /**
  * @swagger

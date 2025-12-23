@@ -15,6 +15,9 @@ const getAllOrders = async (req, res) => {
 const getOrderById = async (req, res) => {
   const { id } = req.params;
   try {
+    if (isNaN(id)) {
+      return res.status(400).json({ message: "ID must be a number" });
+    }
     const order = await Order.findByPk(id);
     if (!order) {
       return res.status(404).json({ message: "Order not found" });
@@ -28,9 +31,25 @@ const getOrderById = async (req, res) => {
 
 // Create new order
 const createOrder = async (req, res) => {
-  const { userId, totalAmount, status } = req.body;
+  const { customerName, totalAmount } = req.body;
+
   try {
-    const newOrder = await Order.create({ userId, totalAmount, status });
+    if (customerName.trim() === "") {
+      return res.status(400).json({ message: "Customer name cannot be empty" });
+    }
+    if (!totalAmount) {
+      return res.status(400).json({ message: "Total amount is required" });
+    }
+    if (isNaN(totalAmount) || totalAmount <= 0) {
+      return res
+        .status(400)
+        .json({ message: "Total amount must be a positive number" });
+    }
+    const newOrder = await Order.create({
+      customerName: customerName || "Walk-in",
+      totalAmount,
+    });
+
     res.status(201).json(newOrder);
   } catch (err) {
     console.error("Error creating order:", err);
@@ -41,13 +60,15 @@ const createOrder = async (req, res) => {
 // Update an order
 const updateOrder = async (req, res) => {
   const { id } = req.params;
-  const { userId, totalAmount, status } = req.body;
+  const { customerName, totalAmount } = req.body;
+
   try {
     const order = await Order.findByPk(id);
     if (!order) return res.status(404).json({ message: "Order not found" });
-    order.userId = userId;
-    order.totalAmount = totalAmount;
-    order.status = status;
+
+    order.customerName = customerName ?? order.customerName;
+    order.totalAmount = totalAmount ?? order.totalAmount;
+
     await order.save();
     res.json(order);
   } catch (err) {
