@@ -1,9 +1,18 @@
 const Product = require("../models/productModel");
+const Category = require("../models/categoryModel");
 
 // Get all products
 const getAllProducts = async (req, res) => {
   try {
-    const products = await Product.findAll();
+    const products = await Product.findAll({
+      include: [
+        {
+          model: Category,
+          as: "category",
+          attributes: ["name", "icon"],
+        },
+      ],
+    });
     res.json(products);
   } catch (err) {
     console.error("Error fetching products:", err);

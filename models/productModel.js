@@ -43,8 +43,7 @@ const Product = sequelize.define(
   }
 );
 
-// Associations
-Category.hasMany(Product, { foreignKey: "categoryId" });
-Product.belongsTo(Category, { foreignKey: "categoryId" });
+Category.hasMany(Product, { foreignKey: "categoryId", as: "products" });
+Product.belongsTo(Category, { foreignKey: "categoryId", as: "category" });
 
 module.exports = Product;
