@@ -34,7 +34,7 @@ const Product = sequelize.define(
         key: "id",
       },
       onUpdate: "CASCADE",
-      onDelete: "CASCADE", // safely deletes products if category is deleted
+      onDelete: "CASCADE",
     },
   },
   {

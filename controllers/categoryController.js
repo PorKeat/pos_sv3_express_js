@@ -31,8 +31,8 @@ const getCategoryById = async (req, res) => {
 
 // Create new category
 const createCategory = async (req, res) => {
-  console.log("BODY:", req.body.name);
-  console.log("FILE:", req.file);
+  // console.log("BODY:", req.body.name);
+  // console.log("FILE:", req.file);
 
   const { name } = req.body;
   const image = req.file;
@@ -49,7 +49,7 @@ const createCategory = async (req, res) => {
 
     const newCategory = await Category.create({
       name,
-      image: image ? `/images/${image.filename}` : null,
+      icon: image ? `/images/${image.filename}` : null,
     });
 
     res.status(201).json(newCategory);

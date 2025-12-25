@@ -14,7 +14,7 @@ const Category = sequelize.define(
       allowNull: false,
       unique: true,
     },
-    image: {
+    icon: {
       type: DataTypes.STRING,
       allowNull: true,
     },
