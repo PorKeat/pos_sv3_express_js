@@ -1,7 +1,7 @@
 const Order = require("../models/orderModel");
 
 // Get all orders
-const getAllOrders = async (req, res) => {
+const getAllOrders_Porkeat = async (req, res) => {
   try {
     const orders = await Order.findAll();
     res.json(orders);
@@ -12,7 +12,7 @@ const getAllOrders = async (req, res) => {
 };
 
 // Get order by ID
-const getOrderById = async (req, res) => {
+const getOrderById_Porkeat = async (req, res) => {
   const { id } = req.params;
   try {
     if (isNaN(id)) {
@@ -30,7 +30,7 @@ const getOrderById = async (req, res) => {
 };
 
 // Create new order
-const createOrder = async (req, res) => {
+const createOrder_Porkeat = async (req, res) => {
   const { customerName, totalAmount } = req.body;
 
   try {
@@ -58,7 +58,7 @@ const createOrder = async (req, res) => {
 };
 
 // Update an order
-const updateOrder = async (req, res) => {
+const updateOrder_Porkeat = async (req, res) => {
   const { id } = req.params;
   const { customerName, totalAmount } = req.body;
 
@@ -78,7 +78,7 @@ const updateOrder = async (req, res) => {
 };
 
 // Delete an order
-const deleteOrder = async (req, res) => {
+const deleteOrder_Porkeat = async (req, res) => {
   const { id } = req.params;
   try {
     const order = await Order.findByPk(id);
@@ -94,9 +94,9 @@ const deleteOrder = async (req, res) => {
 };
 
 module.exports = {
-  getAllOrders,
-  getOrderById,
-  createOrder,
-  updateOrder,
-  deleteOrder,
+  getAllOrders_Porkeat,
+  getOrderById_Porkeat,
+  createOrder_Porkeat,
+  updateOrder_Porkeat,
+  deleteOrder_Porkeat,
 };

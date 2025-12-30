@@ -1,7 +1,7 @@
 const OrderDetail = require("../models/orderDetailModel");
 
 // Get all order details
-const getAllOrderDetails = async (req, res) => {
+const getAllOrderDetails_Porkeat = async (req, res) => {
   try {
     const orderDetails = await OrderDetail.findAll();
     res.json(orderDetails);
@@ -12,7 +12,7 @@ const getAllOrderDetails = async (req, res) => {
 };
 
 // Get order detail by ID
-const getOrderDetailById = async (req, res) => {
+const getOrderDetailById_Porkeat = async (req, res) => {
   const { id } = req.params;
   try {
     const orderDetail = await OrderDetail.findByPk(id);
@@ -27,7 +27,7 @@ const getOrderDetailById = async (req, res) => {
 };
 
 // Create new order detail (POS-ready)
-const createOrderDetail = async (req, res) => {
+const createOrderDetail_Porkeat = async (req, res) => {
   const { orderId, productId, qty, discount } = req.body;
 
   // Validate required fields
@@ -52,7 +52,7 @@ const createOrderDetail = async (req, res) => {
 };
 
 // Update an order detail
-const updateOrderDetail = async (req, res) => {
+const updateOrderDetail_Porkeat = async (req, res) => {
   const { id } = req.params;
   const { orderId, productId, qty, discount } = req.body;
 
@@ -76,7 +76,7 @@ const updateOrderDetail = async (req, res) => {
 };
 
 // Delete an order detail
-const deleteOrderDetail = async (req, res) => {
+const deleteOrderDetail_Porkeat = async (req, res) => {
   const { id } = req.params;
   try {
     const orderDetail = await OrderDetail.findByPk(id);
@@ -92,9 +92,9 @@ const deleteOrderDetail = async (req, res) => {
 };
 
 module.exports = {
-  getAllOrderDetails,
-  getOrderDetailById,
-  createOrderDetail,
-  updateOrderDetail,
-  deleteOrderDetail,
+  getAllOrderDetails_Porkeat,
+  getOrderDetailById_Porkeat,
+  createOrderDetail_Porkeat,
+  updateOrderDetail_Porkeat,
+  deleteOrderDetail_Porkeat,
 };

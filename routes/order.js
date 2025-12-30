@@ -32,7 +32,7 @@ const orderController = require("../controllers/orderController");
  *                     type: string
  *                     example: Order 1
  */
-router.get("/", orderController.getAllOrders);
+router.get("/", orderController.getAllOrders_Porkeat);
 
 /**
  * @swagger
@@ -64,7 +64,7 @@ router.get("/", orderController.getAllOrders);
  *       404:
  *         description: Order not found
  */
-router.get("/:id", orderController.getOrderById);
+router.get("/:id", orderController.getOrderById_Porkeat);
 
 /**
  * @swagger
@@ -88,7 +88,7 @@ router.get("/:id", orderController.getOrderById);
  *       400:
  *         description: Invalid input
  */
-router.post("/", orderController.createOrder);
+router.post("/", orderController.createOrder_Porkeat);
 
 /**
  * @swagger
@@ -121,7 +121,7 @@ router.post("/", orderController.createOrder);
  *       404:
  *         description: Order not found
  */
-router.put("/:id", orderController.updateOrder);
+router.put("/:id", orderController.updateOrder_Porkeat);
 
 /**
  * @swagger
@@ -142,6 +142,6 @@ router.put("/:id", orderController.updateOrder);
  *       404:
  *         description: Order not found
  */
-router.delete("/:id", orderController.deleteOrder);
+router.delete("/:id", orderController.deleteOrder_Porkeat);
 
 module.exports = router;

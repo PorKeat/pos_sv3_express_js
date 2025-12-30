@@ -26,7 +26,7 @@ const upload = require("../middleware/upload");
  *                     type: string
  *                     example: Category 1
  */
-router.get("/", categoryController.getAllCategories);
+router.get("/", categoryController.getAllCategories_Porkeat);
 
 /**
  * @swagger
@@ -58,7 +58,7 @@ router.get("/", categoryController.getAllCategories);
  *       404:
  *         description: Category not found
  */
-router.get("/:id", categoryController.getCategoryById);
+router.get("/:id", categoryController.getCategoryById_Porkeat);
 
 /**
  * @swagger
@@ -82,7 +82,11 @@ router.get("/:id", categoryController.getCategoryById);
  *       400:
  *         description: Invalid input
  */
-router.post("/", upload.single("image"), categoryController.createCategory);
+router.post(
+  "/",
+  upload.single("image"),
+  categoryController.createCategory_Porkeat
+);
 
 /**
  * @swagger
@@ -115,7 +119,7 @@ router.post("/", upload.single("image"), categoryController.createCategory);
  *       404:
  *         description: Category not found
  */
-router.put("/:id", categoryController.updateCategory);
+router.put("/:id", categoryController.updateCategory_Porkeat);
 
 /**
  * @swagger
@@ -136,6 +140,6 @@ router.put("/:id", categoryController.updateCategory);
  *       404:
  *         description: Category not found
  */
-router.delete("/:id", categoryController.deleteCategory);
+router.delete("/:id", categoryController.deleteCategory_Porkeat);
 
 module.exports = router;

@@ -1,6 +1,6 @@
 const User = require("../models/userModel");
 // Get all users
-const getAllUsers = async (req, res) => {
+const getAllUsers_Porkeat = async (req, res) => {
   try {
     const users = await User.findAll();
     res.json(users);
@@ -11,7 +11,7 @@ const getAllUsers = async (req, res) => {
 };
 
 // Get user by ID
-const getUserById = async (req, res) => {
+const getUserById_Porkeat = async (req, res) => {
   const { id } = req.params;
   try {
     const user = await User.findByPk(id);
@@ -26,7 +26,7 @@ const getUserById = async (req, res) => {
 };
 
 // Create new user
-const createUser = async (req, res) => {
+const createUser_Porkeat = async (req, res) => {
   const { username, password } = req.body;
   try {
     const newUser = await User.create({ username, password });
@@ -38,7 +38,7 @@ const createUser = async (req, res) => {
 };
 
 // Update a user
-const updateUser = async (req, res) => {
+const updateUser_Porkeat = async (req, res) => {
   const { id } = req.params;
   const { username, password } = req.body;
   try {
@@ -55,7 +55,7 @@ const updateUser = async (req, res) => {
 };
 
 // Delete a user
-const deleteUser = async (req, res) => {
+const deleteUser_Porkeat = async (req, res) => {
   const { id } = req.params;
   try {
     const user = await User.findByPk(id);
@@ -69,9 +69,9 @@ const deleteUser = async (req, res) => {
 };
 
 module.exports = {
-  getAllUsers,
-  getUserById,
-  createUser,
-  updateUser,
-  deleteUser,
+  getAllUsers_Porkeat,
+  getUserById_Porkeat,
+  createUser_Porkeat,
+  updateUser_Porkeat,
+  deleteUser_Porkeat,
 };

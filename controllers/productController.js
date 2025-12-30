@@ -2,7 +2,7 @@ const Product = require("../models/productModel");
 const Category = require("../models/categoryModel");
 
 // Get all products
-const getAllProducts = async (req, res) => {
+const getAllProducts_Porkeat = async (req, res) => {
   try {
     const products = await Product.findAll({
       include: [
@@ -21,7 +21,7 @@ const getAllProducts = async (req, res) => {
 };
 
 // Get product by ID
-const getProductById = async (req, res) => {
+const getProductById_Porkeat = async (req, res) => {
   const { id } = req.params;
   try {
     const product = await Product.findByPk(id);
@@ -36,7 +36,7 @@ const getProductById = async (req, res) => {
 };
 
 // Create new product
-const createProduct = async (req, res) => {
+const createProduct_Porkeat = async (req, res) => {
   const { productName, qty, price, discount, categoryId } = req.body;
   try {
     const newProduct = await Product.create({
@@ -54,7 +54,7 @@ const createProduct = async (req, res) => {
 };
 
 // Update a product
-const updateProduct = async (req, res) => {
+const updateProduct_Porkeat = async (req, res) => {
   const { id } = req.params;
   const { productName, qty, price, discount, categoryId } = req.body;
   try {
@@ -74,7 +74,7 @@ const updateProduct = async (req, res) => {
 };
 
 // Delete a product
-const deleteProduct = async (req, res) => {
+const deleteProduct_Porkeat = async (req, res) => {
   const { id } = req.params;
   try {
     const product = await Product.findByPk(id);
@@ -88,9 +88,9 @@ const deleteProduct = async (req, res) => {
 };
 
 module.exports = {
-  getAllProducts,
-  getProductById,
-  createProduct,
-  updateProduct,
-  deleteProduct,
+  getAllProducts_Porkeat,
+  getProductById_Porkeat,
+  createProduct_Porkeat,
+  updateProduct_Porkeat,
+  deleteProduct_Porkeat,
 };

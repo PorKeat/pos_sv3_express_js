@@ -32,7 +32,7 @@ const productController = require("../controllers/productController");
  *                     type: string
  *                     example: Product 1
  */
-router.get("/", productController.getAllProducts);
+router.get("/", productController.getAllProducts_Porkeat);
 
 /**
  * @swagger
@@ -64,7 +64,7 @@ router.get("/", productController.getAllProducts);
  *       404:
  *         description: Product not found
  */
-router.get("/:id", productController.getProductById);
+router.get("/:id", productController.getProductById_Porkeat);
 
 /**
  * @swagger
@@ -88,7 +88,7 @@ router.get("/:id", productController.getProductById);
  *       400:
  *         description: Invalid input
  */
-router.post("/", productController.createProduct);
+router.post("/", productController.createProduct_Porkeat);
 
 /**
  * @swagger
@@ -121,7 +121,7 @@ router.post("/", productController.createProduct);
  *       404:
  *         description: Product not found
  */
-router.put("/:id", productController.updateProduct);
+router.put("/:id", productController.updateProduct_Porkeat);
 
 /**
  * @swagger
@@ -142,6 +142,6 @@ router.put("/:id", productController.updateProduct);
  *       404:
  *         description: Product not found
  */
-router.delete("/:id", productController.deleteProduct);
+router.delete("/:id", productController.deleteProduct_Porkeat);
 
 module.exports = router;

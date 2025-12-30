@@ -1,7 +1,7 @@
 const Category = require("../models/categoryModel");
 
 // Get all categories
-const getAllCategories = async (req, res) => {
+const getAllCategories_Porkeat = async (req, res) => {
   try {
     const categories = await Category.findAll();
     res.json(categories);
@@ -12,7 +12,7 @@ const getAllCategories = async (req, res) => {
 };
 
 // Get category by ID
-const getCategoryById = async (req, res) => {
+const getCategoryById_Porkeat = async (req, res) => {
   const { id } = req.params;
   try {
     if (isNaN(id)) {
@@ -30,7 +30,7 @@ const getCategoryById = async (req, res) => {
 };
 
 // Create new category
-const createCategory = async (req, res) => {
+const createCategory_Porkeat = async (req, res) => {
   // console.log("BODY:", req.body.name);
   // console.log("FILE:", req.file);
 
@@ -60,7 +60,7 @@ const createCategory = async (req, res) => {
 };
 
 // Update a category
-const updateCategory = async (req, res) => {
+const updateCategory_Porkeat = async (req, res) => {
   const { id } = req.params;
   const { name } = req.body;
   try {
@@ -85,7 +85,7 @@ const updateCategory = async (req, res) => {
 };
 
 // Delete a category
-const deleteCategory = async (req, res) => {
+const deleteCategory_Porkeat = async (req, res) => {
   const { id } = req.params;
   try {
     const category = await Category.findByPk(id);
@@ -104,9 +104,9 @@ const deleteCategory = async (req, res) => {
 };
 
 module.exports = {
-  getAllCategories,
-  getCategoryById,
-  createCategory,
-  updateCategory,
-  deleteCategory,
+  getAllCategories_Porkeat,
+  getCategoryById_Porkeat,
+  createCategory_Porkeat,
+  updateCategory_Porkeat,
+  deleteCategory_Porkeat,
 };
