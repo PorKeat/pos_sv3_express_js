@@ -1,7 +1,9 @@
 const { Sequelize } = require("sequelize");
 const dotenv = require("dotenv");
+const fs = require("fs");
 
-dotenv.config({ debug: false });
+const envFile = fs.existsSync(".env.local") ? ".env.local" : ".env.production";
+dotenv.config({ debug: false, path: envFile });
 
 const sequelize = new Sequelize(
   process.env.DB_NAME || "database",
