@@ -15,7 +15,7 @@ const getAllOrders_Porkeat = async (req, res) => {
 const getOrderById_Porkeat = async (req, res) => {
   const { id } = req.params;
   try {
-    if (isNaN(id)) {
+    if (Number.isNaN(id)) {
       return res.status(400).json({ message: "ID must be a number" });
     }
     const order = await Order.findByPk(id);
@@ -40,7 +40,7 @@ const createOrder_Porkeat = async (req, res) => {
     if (!totalAmount) {
       return res.status(400).json({ message: "Total amount is required" });
     }
-    if (isNaN(totalAmount) || totalAmount <= 0) {
+    if (Number.isNaN(totalAmount) || totalAmount <= 0) {
       return res
         .status(400)
         .json({ message: "Total amount must be a positive number" });

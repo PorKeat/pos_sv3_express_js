@@ -15,7 +15,7 @@ const getAllCategories_Porkeat = async (req, res) => {
 const getCategoryById_Porkeat = async (req, res) => {
   const { id } = req.params;
   try {
-    if (isNaN(id)) {
+    if (Number.isNaN(id)) {
       return res.status(400).json({ message: "ID must be a number" });
     }
     const category = await Category.findByPk(id);
@@ -64,7 +64,7 @@ const updateCategory_Porkeat = async (req, res) => {
   const { id } = req.params;
   const { name } = req.body;
   try {
-    if (isNaN(id)) {
+    if (Number.isNaN(id)) {
       return res.status(400).json({ message: "ID must be a number" });
     }
     const category = await Category.findByPk(id);
@@ -89,7 +89,7 @@ const deleteCategory_Porkeat = async (req, res) => {
   const { id } = req.params;
   try {
     const category = await Category.findByPk(id);
-    if (isNaN(id)) {
+    if (Number.isNaN(id)) {
       return res.status(400).json({ message: "ID must be a number" });
     }
     if (!category)

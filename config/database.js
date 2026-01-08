@@ -1,6 +1,6 @@
 const { Sequelize } = require("sequelize");
 const dotenv = require("dotenv");
-const fs = require("fs");
+const fs = require("node:fs");
 
 const envFile = fs.existsSync(".env.local") ? ".env.local" : ".env.production";
 dotenv.config({ debug: false, path: envFile });
